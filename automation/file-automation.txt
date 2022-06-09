@@ -1,0 +1,2 @@
+start -> get the last modified of file -> check if the folder of the corresponding month exists -(if exist)->  move file over -> end
+												-(if doesn't exist) -> create new file -> move file over -> end
