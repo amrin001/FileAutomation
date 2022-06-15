@@ -9,14 +9,13 @@ public class AutoScript {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter a directory name: ");
 		String path = scanner.nextLine();
-		
+
 		ScanFolder scanForFiles = new ScanFolder();
-		
-		for (int i=0; i < scanForFiles.scanFolder(path).size(); i++) {
+
+		for (int i = 0; i < scanForFiles.scanFolder(path).size(); i++) {
 			String fileName = (String) scanForFiles.scanFolder(path).get(i);
-			GetFileData getData = new GetFileData();
 			FolderName folderName = new FolderName();
-			String updatedFolder = folderName.folderLastModifiedDate(path, fileName, getData);
+			String updatedFolder = folderName.folderLastModifiedDate(path, fileName);
 			File file = new File(updatedFolder);
 			if (file.exists()) {
 				folderName.moveFile(fileName, path, updatedFolder);

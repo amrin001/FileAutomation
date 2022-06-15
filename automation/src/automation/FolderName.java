@@ -18,7 +18,8 @@ public class FolderName { // creating folder name
 		return newDirectory;
 	}
 
-	public String folderLastModifiedDate(String path, String fileName, GetFileData lastModified) {
+	public String folderLastModifiedDate(String path, String fileName) {
+		GetFileData lastModified = new GetFileData();
 		String newDirectory = path.concat(lastModified.getLastModified(path, fileName)+"/");
 		return newDirectory;
 	}

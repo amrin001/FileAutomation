@@ -1,26 +1,26 @@
 package automation;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ManualScript {
 
 	public static void main(String[] args) {
-		System.out.println("Enter the name of the path...");
-		Scanner scanner = new Scanner(System.in);
-		String path = scanner.nextLine();
-//		String path = "\\\\SVRSG001RPS01.asia.corp.anz.com\\binanana$/Downloads/";
-		System.out.println("Please enter the name of the file...");
+		String path = "\\\\SVRSG001RPS01.asia.corp.anz.com\\binanana$\\My Documents/";
+		ArrayList<String> fileNames = new ArrayList<>();
+
+		System.out.println("Please enter the name of the file(s)...");
 		Scanner scanner2 = new Scanner(System.in);
 		String fileName = scanner2.nextLine();
-//		String fileName = "FireWall_Req_UCD (1).xlsx";
+
+		// GetFileData getData = new GetFileData();
+		// String lastModDate = getData.getLastModified(path, fileName);
+		// System.out.println("The last modified date for this file is " + lastModDate);
+
 		FolderName folderName = new FolderName();
-		
-		GetFileData getData = new GetFileData();
-		String lastModDate = getData.getLastModified(path, fileName);
-		System.out.println("The last modified date for this file is "+lastModDate);
-		
-		String updatedFolder = folderName.folderLastModifiedDate(path, fileName, getData);
+
+		String updatedFolder = folderName.folderLastModifiedDate(path, fileName);
 		System.out.println(updatedFolder);
 		File file = new File(updatedFolder);
 		if (file.exists()) {
@@ -32,12 +32,7 @@ public class ManualScript {
 			folderName.moveFile(fileName, path, updatedFolder);
 			System.out.println("File has been successfully moved!");
 		}
-		
 
-		
-		
-		
-		
 	}
 
 }
